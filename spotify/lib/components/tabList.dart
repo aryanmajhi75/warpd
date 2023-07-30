@@ -15,7 +15,7 @@ class _TabListState extends State<TabList> {
   Widget build(BuildContext context) {
     return SizedBox(
       // color: Colors.pinkAccent,
-      height: 350,
+      height: 280,
       child: Column(
         children: [
           DefaultTabController(
@@ -41,87 +41,54 @@ class _TabListState extends State<TabList> {
               },
               isScrollable: true,
               indicatorSize: TabBarIndicatorSize.label,
-              tabs: const [
+              tabs: [
                 Tab(
-                  height: 20.0,
+                  height: 24.0,
                   child: Text(
                     "Artists",
-                    style: TextStyle(
-                      fontSize: 19,
-                      fontWeight: FontWeight.bold,
-                      color: Color(
-                        0xff000000,
-                      ),
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 Tab(
-                  height: 20.0,
+                  height: 24.0,
                   child: Text(
                     "Podcasts",
-                    style: TextStyle(
-                      fontSize: 19,
-                      fontWeight: FontWeight.bold,
-                      color: Color(
-                        0xff000000,
-                      ),
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 Tab(
-                  height: 20.0,
+                  height: 24.0,
                   child: Text(
                     "Liked",
-                    style: TextStyle(
-                      fontSize: 19,
-                      fontWeight: FontWeight.bold,
-                      color: Color(
-                        0xff000000,
-                      ),
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 Tab(
-                  height: 20.0,
+                  height: 24.0,
                   child: Text(
                     "Trending",
-                    style: TextStyle(
-                      fontSize: 19,
-                      fontWeight: FontWeight.bold,
-                      color: Color(
-                        0xff000000,
-                      ),
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 Tab(
-                  height: 20.0,
+                  height: 24.0,
                   child: Text(
                     "Recommended",
-                    style: TextStyle(
-                      fontSize: 19,
-                      fontWeight: FontWeight.bold,
-                      color: Color(
-                        0xff000000,
-                      ),
-                    ),
+                    style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
               ],
             ),
           ),
-          const SizedBox(
-            height: 10,
-          ),
           Container(
-            height: 250,
+            height: 235,
             padding: const EdgeInsets.all(5),
             // color: Colors.pinkAccent,
             child: ListView(
               itemExtent: 145,
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.all(10),
-              children: [
+              children: const [
                 TabCards(),
                 TabCards(),
                 TabCards(),

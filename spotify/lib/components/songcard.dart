@@ -24,16 +24,18 @@ class _SongCardState extends State<SongCard> {
             ),
             margin: const EdgeInsets.all(20),
             color: const Color(0xFF1AB40C),
-            child: const Stack(
+            child: Stack(
               children: [
                 Positioned(
                   top: 15,
                   left: 15,
                   child: Text(
                     "PLAYING",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
+                    style: Theme.of(context).textTheme.displayMedium,
+                    // style: TextStyle(
+                    // fontFamily: 'Quicksand',
+                    // color: Colors.white,
+                    // ),
                   ),
                 ),
                 Positioned(
@@ -44,12 +46,7 @@ class _SongCardState extends State<SongCard> {
                     width: 180,
                     child: Text(
                       "I Don't Think I Like Her",
-                      style: TextStyle(
-                        fontSize: 20,
-                        overflow: TextOverflow.ellipsis,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
+                      style: Theme.of(context).textTheme.headlineMedium,
                     ),
                   ), //lyrics to be displayed line-by-line
                 ),
@@ -58,9 +55,7 @@ class _SongCardState extends State<SongCard> {
                   left: 15,
                   child: Text(
                     "Charlie Puth",
-                    style: TextStyle(
-                      color: Colors.white,
-                    ),
+                    style: Theme.of(context).textTheme.displayMedium,
                   ), //lyrics to be displayed line-by-line
                 ),
               ],

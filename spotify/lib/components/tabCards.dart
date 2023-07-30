@@ -28,20 +28,19 @@ class _TabCardsState extends State<TabCards> {
             child: ElevatedButton(
               onPressed: () {},
               style: const ButtonStyle(
-                  elevation: MaterialStatePropertyAll(0),
-                  fixedSize: MaterialStatePropertyAll(
-                    Size(3, 3),
-                  ),
-                  visualDensity: VisualDensity.comfortable,
-                  backgroundColor: MaterialStatePropertyAll(
-                    Color(0xFFBBB8B8),
-                    // Colors.transparent,
-                  ),
-                  shape: MaterialStatePropertyAll(CircleBorder()),
-                  animationDuration: Duration(
-                    seconds: 1,
-                  ),
-                  alignment: Alignment.center),
+                fixedSize: MaterialStatePropertyAll(
+                  Size(3, 3),
+                ),
+                backgroundColor: MaterialStatePropertyAll(
+                  Color(0xFFBBB8B8),
+                  // Colors.transparent,
+                ),
+                shape: MaterialStatePropertyAll(CircleBorder()),
+                animationDuration: Duration(
+                  seconds: 1,
+                ),
+                alignment: Alignment.center,
+              ),
               child: const Icon(
                 Icons.play_arrow_rounded,
                 color: Color(0xFF383838),
@@ -49,16 +48,12 @@ class _TabCardsState extends State<TabCards> {
               ),
             ),
           ),
-          const Positioned(
+          Positioned(
             top: 185,
             left: 10,
             child: Text(
               "Artist Name",
-              style: TextStyle(
-                fontSize: 20,
-                overflow: TextOverflow.ellipsis,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.displayLarge,
             ),
           ),
         ],

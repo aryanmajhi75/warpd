@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/pages/homeScreen.dart';
+import 'package:spotify/themes.dart';
 
 void main() {
   runApp(const Spotify());
@@ -13,6 +14,7 @@ class Spotify extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/home',
+      theme: AppTheme.lightTheme,
       routes: {
         '/home': (context) => homeScreen(),
       },

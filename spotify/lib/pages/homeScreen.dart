@@ -28,28 +28,50 @@ class _homeScreenState extends State<homeScreen> {
         elevation: 0,
         leading: IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.search),
+          icon: const Icon(
+            Icons.search,
+            size: 30,
+          ),
         ),
         actions: const [
-          Icon(Icons.more_vert_rounded),
+          Icon(
+            Icons.more_vert_rounded,
+            size: 30,
+          ),
         ],
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             left: 20,
             right: 20,
           ),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
-                Center(
+                const Center(
                   child: SongCard(),
                 ),
-                TabList(),
+                const TabList(),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Playlist",
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        "See More",
+                        style: Theme.of(context).textTheme.displayMedium,
+                      ),
+                    )
+                  ],
+                ),
               ],
             ),
           ),
