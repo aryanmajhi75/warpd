@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:appwrite/appwrite.dart';
+import 'package:spotify/components/PlaylistItems.dart';
 
 import '../components/songcard.dart';
 import '../components/tabList.dart';
@@ -69,8 +70,24 @@ class _homeScreenState extends State<homeScreen> {
                         "See More",
                         style: Theme.of(context).textTheme.displayMedium,
                       ),
-                    )
+                    ),
                   ],
+                ),
+                Container(
+                  height: 300,
+                  color: Colors.amberAccent,
+                  child: ListView(
+                    padding: const EdgeInsets.only(
+                      top: 10,
+                      bottom: 10,
+                    ),
+                    children: const [
+                      SizedBox(
+                        height: 80,
+                        child: PlaylistItems(),
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
