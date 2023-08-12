@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:spotify/pages/homeScreen.dart';
+import 'package:spotify/components/customNavbar.dart';
 import 'package:spotify/themes.dart';
 
 void main() {
@@ -16,9 +16,9 @@ class Spotify extends StatelessWidget {
       initialRoute: '/home',
       theme: AppTheme.lightTheme,
       routes: {
-        '/home': (context) => homeScreen(),
+        '/home': (context) => CustomNavBar(),
       },
-      home: homeScreen(),
+      home: CustomNavBar(),
     );
   }
 }

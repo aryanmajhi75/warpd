@@ -73,20 +73,23 @@ class _homeScreenState extends State<homeScreen> {
                     ),
                   ],
                 ),
-                Container(
+                SizedBox(
                   height: 300,
-                  color: Colors.amberAccent,
-                  child: ListView(
+                  // color: Colors.amberAccent,
+                  child: ListView.builder(
                     padding: const EdgeInsets.only(
                       top: 10,
                       bottom: 10,
                     ),
-                    children: const [
-                      SizedBox(
-                        height: 80,
+                    shrinkWrap: false,
+                    scrollDirection: Axis.vertical,
+                    itemCount: 5,
+                    itemBuilder: (context, index) {
+                      return const Padding(
+                        padding: EdgeInsets.all(8.0),
                         child: PlaylistItems(),
-                      ),
-                    ],
+                      );
+                    },
                   ),
                 ),
               ],
