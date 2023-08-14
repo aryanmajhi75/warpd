@@ -85,9 +85,14 @@ class _homeScreenState extends State<homeScreen> {
                     scrollDirection: Axis.vertical,
                     itemCount: 5,
                     itemBuilder: (context, index) {
-                      return const Padding(
-                        padding: EdgeInsets.all(8.0),
-                        child: PlaylistItems(),
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/musicplayer');
+                          },
+                          child: const PlaylistItems(),
+                        ),
                       );
                     },
                   ),

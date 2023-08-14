@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/components/customNavbar.dart';
+import 'package:spotify/pages/musicplayer.dart';
 import 'package:spotify/themes.dart';
 
 void main() {
@@ -16,9 +17,10 @@ class Spotify extends StatelessWidget {
       initialRoute: '/home',
       theme: AppTheme.lightTheme,
       routes: {
-        '/home': (context) => CustomNavBar(),
+        '/home': (context) => const CustomNavBar(),
+        '/musicplayer': (context) => const MusicPlayer(),
       },
-      home: CustomNavBar(),
+      home: const CustomNavBar(),
     );
   }
 }

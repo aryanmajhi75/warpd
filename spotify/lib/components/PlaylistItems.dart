@@ -29,7 +29,9 @@ class _PlaylistItemsState extends State<PlaylistItems> {
                 Size(5, 5),
               ),
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/musicplayer');
+            },
             child: const Icon(
               Icons.play_arrow_rounded,
             ),
