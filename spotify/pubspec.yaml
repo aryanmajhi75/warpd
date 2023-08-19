@@ -10,6 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   appwrite: ^8.1.0
+  audio_video_progress_bar:
 
 dev_dependencies:
   flutter_test:

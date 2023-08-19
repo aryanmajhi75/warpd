@@ -1,4 +1,6 @@
+import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:spotify/components/buttonRow.dart';
 import 'package:spotify/constants.dart';
 
 class MusicPlayer extends StatefulWidget {
@@ -10,6 +12,10 @@ class MusicPlayer extends StatefulWidget {
 
 class _MusicPlayerState extends State<MusicPlayer> {
   bool _isPressed = false;
+  final Duration _totalDuration = Duration(
+    minutes: 4,
+    seconds: 02,
+  );
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
@@ -26,6 +32,11 @@ class _MusicPlayerState extends State<MusicPlayer> {
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_rounded),
         ),
+        title: Text(
+          "Now playing",
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
+        centerTitle: true,
       ),
       body: SafeArea(
         child: Padding(
@@ -38,6 +49,9 @@ class _MusicPlayerState extends State<MusicPlayer> {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.amberAccent,
                 ),
+              ),
+              const SizedBox(
+                height: 13,
               ),
               Row(
                 children: [
@@ -85,11 +99,35 @@ class _MusicPlayerState extends State<MusicPlayer> {
                       }
                     },
                     child: const Icon(
-                      Icons.favorite,
+                      Icons.favorite_border_outlined,
                     ),
                   ),
                 ],
               ),
+              const SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8),
+                child: ProgressBar(
+                  progress: const Duration(
+                    seconds: 0,
+                  ),
+                  total: _totalDuration,
+                  barHeight: 3,
+                  progressBarColor: spotifyDarkGray,
+                  thumbColor: spotifyDarkGray,
+                  thumbRadius: 7,
+                  baseBarColor: spotifyGray,
+                  thumbGlowRadius: 0,
+                  timeLabelTextStyle: Theme.of(context).textTheme.displayMedium,
+                  timeLabelPadding: 5,
+                ),
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              const ButtonRow(),
             ],
           ),
         ),
