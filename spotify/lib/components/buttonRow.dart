@@ -1,48 +1,75 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/constants.dart';
 
-class ButtonRow extends StatelessWidget {
+class ButtonRow extends StatefulWidget {
   const ButtonRow({super.key});
 
-  final bool _isPressed = false;
+  @override
+  State<ButtonRow> createState() => _ButtonRowState();
+}
+
+class _ButtonRowState extends State<ButtonRow> {
+  bool _isPlaying = false;
+  bool _isShuffle = false;
+  int repeat = 0;
+  Icon repeatButton = const Icon(
+    Icons.repeat_rounded,
+    size: 30,
+  );
+
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         //Repeat Button
         ElevatedButton(
           style: ButtonStyle(
             shape: const MaterialStatePropertyAll(CircleBorder()),
-            fixedSize: const MaterialStatePropertyAll(
-              Size(5, 5),
-            ),
+            // fixedSize: const MaterialStatePropertyAll(
+            //   Size(5, 5),
+            // ),
             backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
-            iconColor: _isPressed
-                ? MaterialStatePropertyAll(spotifyGreen)
-                : const MaterialStatePropertyAll(Colors.black38),
+            animationDuration: const Duration(seconds: 1),
+            padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
+            iconColor: repeat == 0
+                ? const MaterialStatePropertyAll(Colors.black38)
+                : MaterialStatePropertyAll(spotifyGreen),
           ),
           onPressed: () {
-            // if (_isPressed) {
-            //   setState(() => _isPressed = false);
-            // } else {
-            //   setState(() => _isPressed = true);
-            // }
+            if (repeat == 0) {
+              //repeat off
+              setState(() {
+                repeat = 1;
+                repeatButton = const Icon(Icons.repeat_rounded);
+              });
+            } else if (repeat == 1) //repeat all songs
+            {
+              setState(() {
+                repeat = 2;
+                repeatButton = const Icon(Icons.repeat_one_rounded);
+              });
+            } else if (repeat == 2) //repeat current song
+            {
+              setState(() {
+                repeat = 0;
+                repeatButton = const Icon(Icons.repeat_rounded);
+              });
+            }
           },
-          child: const Icon(
-            Icons.repeat_rounded,
-            size: 23,
-          ),
+          child: repeatButton,
         ),
 
         //Previous Button
         ElevatedButton(
           style: const ButtonStyle(
             shape: MaterialStatePropertyAll(CircleBorder()),
-            fixedSize: MaterialStatePropertyAll(
-              Size(5, 5),
-            ),
+            // fixedSize: MaterialStatePropertyAll(
+            //   Size(25, 25),
+            // ),
+            animationDuration: Duration(seconds: 1),
+            padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
             backgroundColor: MaterialStatePropertyAll(Colors.transparent),
             iconColor: MaterialStatePropertyAll(Colors.black),
           ),
@@ -78,25 +105,32 @@ class ButtonRow extends StatelessWidget {
             iconColor: MaterialStatePropertyAll(spotifyWhite),
           ),
           onPressed: () {
-            // if (_isPressed) {
-            //   setState(() => _isPressed = false);
-            // } else {
-            //   setState(() => _isPressed = true);
-            // }
+            if (_isPlaying) {
+              setState(() => _isPlaying = false);
+            } else {
+              setState(() => _isPlaying = true);
+            }
           },
-          child: const Icon(
-            Icons.play_arrow_rounded,
-            size: 50,
-          ),
+          child: _isPlaying
+              ? const Icon(
+                  Icons.pause_rounded,
+                  size: 50,
+                )
+              : const Icon(
+                  Icons.play_arrow_rounded,
+                  size: 50,
+                ),
         ),
 
         //Next Button
         ElevatedButton(
           style: const ButtonStyle(
             shape: MaterialStatePropertyAll(CircleBorder()),
-            fixedSize: MaterialStatePropertyAll(
-              Size(5, 5),
-            ),
+            // fixedSize: MaterialStatePropertyAll(
+            //   Size(5, 5),
+            // ),
+            animationDuration: Duration(seconds: 1),
+            padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
             backgroundColor: MaterialStatePropertyAll(Colors.transparent),
             iconColor: MaterialStatePropertyAll(Colors.black),
           ),
@@ -117,24 +151,26 @@ class ButtonRow extends StatelessWidget {
         ElevatedButton(
           style: ButtonStyle(
             shape: const MaterialStatePropertyAll(CircleBorder()),
-            fixedSize: const MaterialStatePropertyAll(
-              Size(5, 5),
-            ),
+            // fixedSize: const MaterialStatePropertyAll(
+            //   Size(5, 5),
+            // ),
+            animationDuration: const Duration(seconds: 1),
+            padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
             backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
-            iconColor: _isPressed
+            iconColor: _isShuffle
                 ? MaterialStatePropertyAll(spotifyGreen)
                 : const MaterialStatePropertyAll(Colors.black38),
           ),
           onPressed: () {
-            // if (_isPressed) {
-            //   setState(() => _isPressed = false);
-            // } else {
-            //   setState(() => _isPressed = true);
-            // }
+            if (_isShuffle) {
+              setState(() => _isShuffle = false);
+            } else {
+              setState(() => _isShuffle = true);
+            }
           },
           child: const Icon(
             Icons.shuffle_rounded,
-            size: 23,
+            size: 30,
           ),
         ),
       ],
