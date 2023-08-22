@@ -5,18 +5,18 @@ import 'package:spotify/components/PlaylistItems.dart';
 import '../components/songcard.dart';
 import '../components/tabList.dart';
 
-class homeScreen extends StatefulWidget {
-  homeScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  HomeScreen({super.key});
 
   final Client client = Client()
       .setEndpoint('https://cloud.appwrite.io/v1')
       .setProject(
           '64c693cbb0374c425058'); // For self signed certificates, only use for development
   @override
-  State<homeScreen> createState() => _homeScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _homeScreenState extends State<homeScreen> {
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
