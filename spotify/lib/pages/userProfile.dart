@@ -8,12 +8,14 @@ class UserProfile extends StatefulWidget {
   State<UserProfile> createState() => _UserProfileState();
 }
 
+//use sliver app bar for the desired pull down menu options!
 class _UserProfileState extends State<UserProfile> {
   final int followers = 420;
   final int following = 243;
   @override
   Widget build(BuildContext context) {
     final deviceHeight = MediaQuery.of(context).size.height;
+    final deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: spotifyGray,
       body: SafeArea(
@@ -94,7 +96,17 @@ class _UserProfileState extends State<UserProfile> {
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                   SizedBox(
-                    height: deviceHeight * 0.02,
+                    height: deviceHeight * 0.01,
+                  ),
+                  SizedBox(
+                    height: deviceHeight * 0.005,
+                    child: Container(
+                      width: deviceWidth * 0.15,
+                      decoration: BoxDecoration(
+                        color: spotifyDarkGray,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
                   ),
                 ],
               ),
