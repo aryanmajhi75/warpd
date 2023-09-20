@@ -12,16 +12,44 @@ class UserProfile extends StatefulWidget {
 class _UserProfileState extends State<UserProfile> {
   final int followers = 420;
   final int following = 243;
+  bool isExpanded = false;
+  double containerHeight = 0.2;
+
+  void toggleContainerHeight() {
+    setState(() {
+      isExpanded = !isExpanded;
+      containerHeight = isExpanded ? 0.6 : 0.2;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final deviceHeight = MediaQuery.of(context).size.height;
-    final deviceWidth = MediaQuery.of(context).size.width;
+    // final deviceHeight = MediaQuery.of(context).size.height;
+    // final deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: spotifyGray,
       body: SafeArea(
         child: Column(
           children: [
-            
+            GestureDetector(
+              onVerticalDragUpdate: (details) {
+                if (details.delta.dy > 0) {
+                  // Dragging down
+                  if (!isExpanded) {
+                    toggleContainerHeight();
+                  }
+                } else if (details.delta.dy < 0) {
+                  // Dragging up
+                  if (isExpanded) {
+                    toggleContainerHeight();
+                  }
+                }
+              },
+              child: AnimatedContainer(
+                duration: const Duration(seconds: 2),
+                child: isExpanded ? Column() : Column(),
+              ),
+            )
           ],
         ),
       ),
@@ -29,98 +57,97 @@ class _UserProfileState extends State<UserProfile> {
   }
 }
 
-
-                // Container(
-                //   padding: const EdgeInsets.all(10),
-                //   decoration: BoxDecoration(
-                //     color: spotifyWhite,
-                //     borderRadius: const BorderRadius.only(
-                //       bottomLeft: Radius.circular(50),
-                //       bottomRight: Radius.circular(50),
-                //     ),
-                //   ),
-                //   child: Column(
-                //     children: [
-                //       Row(
-                //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                //         children: [
-                //           ElevatedButton(
-                //             style: ButtonStyle(
-                //               shape: const MaterialStatePropertyAll(
-                //                   CircleBorder()),
-                //               backgroundColor:
-                //                   MaterialStatePropertyAll(spotifyGray),
-                //               iconColor:
-                //                   MaterialStatePropertyAll(spotifyDarkGray),
-                //             ),
-                //             onPressed: () {
-                //               Navigator.pop(context);
-                //             },
-                //             child: const Icon(
-                //               Icons.arrow_back_ios_new_rounded,
-                //               size: 23,
-                //             ),
-                //           ),
-                //           Text(
-                //             "Profile",
-                //             style: Theme.of(context).textTheme.headlineMedium,
-                //           ),
-                //           ElevatedButton(
-                //             style: ButtonStyle(
-                //               shape: const MaterialStatePropertyAll(
-                //                   CircleBorder()),
-                //               backgroundColor: const MaterialStatePropertyAll(
-                //                   Colors.transparent),
-                //               iconColor:
-                //                   MaterialStatePropertyAll(spotifyDarkGray),
-                //             ),
-                //             onPressed: () {
-                //               // Navigator.pop(context);
-                //             },
-                //             child: const Icon(
-                //               Icons.more_vert_rounded,
-                //               size: 23,
-                //             ),
-                //           ),
-                //         ],
-                //       ),
-                //       SizedBox(
-                //         height: deviceHeight * 0.01,
-                //       ),
-                //       Container(
-                //         height: deviceHeight * 0.1,
-                //         decoration: const BoxDecoration(
-                //           color: Colors.amber,
-                //           shape: BoxShape.circle,
-                //         ),
-                //       ),
-                //       SizedBox(
-                //         height: deviceHeight * 0.01,
-                //       ),
-                //       Text(
-                //         "Email@email.com",
-                //         style: Theme.of(context).textTheme.displayMedium,
-                //       ),
-                //       SizedBox(
-                //         height: deviceHeight * 0.01,
-                //       ),
-                //       Text(
-                //         "Username",
-                //         style: Theme.of(context).textTheme.headlineMedium,
-                //       ),
-                //       SizedBox(
-                //         height: deviceHeight * 0.01,
-                //       ),
-                //       SizedBox(
-                //         height: deviceHeight * 0.005,
-                //         child: Container(
-                //           width: deviceWidth * 0.15,
-                //           decoration: BoxDecoration(
-                //             color: spotifyDarkGray,
-                //             borderRadius: BorderRadius.circular(20),
-                //           ),
-                //         ),
-                //       ),
-                //     ],
-                //   ),
-                // ),
+// Container(
+//   padding: const EdgeInsets.all(10),
+//   decoration: BoxDecoration(
+//     color: spotifyWhite,
+//     borderRadius: const BorderRadius.only(
+//       bottomLeft: Radius.circular(50),
+//       bottomRight: Radius.circular(50),
+//     ),
+//   ),
+//   child: Column(
+//     children: [
+//       Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//         children: [
+//           ElevatedButton(
+//             style: ButtonStyle(
+//               shape: const MaterialStatePropertyAll(
+//                   CircleBorder()),
+//               backgroundColor:
+//                   MaterialStatePropertyAll(spotifyGray),
+//               iconColor:
+//                   MaterialStatePropertyAll(spotifyDarkGray),
+//             ),
+//             onPressed: () {
+//               Navigator.pop(context);
+//             },
+//             child: const Icon(
+//               Icons.arrow_back_ios_new_rounded,
+//               size: 23,
+//             ),
+//           ),
+//           Text(
+//             "Profile",
+//             style: Theme.of(context).textTheme.headlineMedium,
+//           ),
+//           ElevatedButton(
+//             style: ButtonStyle(
+//               shape: const MaterialStatePropertyAll(
+//                   CircleBorder()),
+//               backgroundColor: const MaterialStatePropertyAll(
+//                   Colors.transparent),
+//               iconColor:
+//                   MaterialStatePropertyAll(spotifyDarkGray),
+//             ),
+//             onPressed: () {
+//               // Navigator.pop(context);
+//             },
+//             child: const Icon(
+//               Icons.more_vert_rounded,
+//               size: 23,
+//             ),
+//           ),
+//         ],
+//       ),
+//       SizedBox(
+//         height: deviceHeight * 0.01,
+//       ),
+//       Container(
+//         height: deviceHeight * 0.1,
+//         decoration: const BoxDecoration(
+//           color: Colors.amber,
+//           shape: BoxShape.circle,
+//         ),
+//       ),
+//       SizedBox(
+//         height: deviceHeight * 0.01,
+//       ),
+//       Text(
+//         "Email@email.com",
+//         style: Theme.of(context).textTheme.displayMedium,
+//       ),
+//       SizedBox(
+//         height: deviceHeight * 0.01,
+//       ),
+//       Text(
+//         "Username",
+//         style: Theme.of(context).textTheme.headlineMedium,
+//       ),
+//       SizedBox(
+//         height: deviceHeight * 0.01,
+//       ),
+//       SizedBox(
+//         height: deviceHeight * 0.005,
+//         child: Container(
+//           width: deviceWidth * 0.15,
+//           decoration: BoxDecoration(
+//             color: spotifyDarkGray,
+//             borderRadius: BorderRadius.circular(20),
+//           ),
+//         ),
+//       ),
+//     ],
+//   ),
+// ),
