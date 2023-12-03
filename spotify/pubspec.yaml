@@ -12,6 +12,8 @@ dependencies:
   appwrite: ^8.1.0
   audio_video_progress_bar:
   flutter_animate: 
+  gap: 
+  provider: 
 
 dev_dependencies:
   flutter_test:

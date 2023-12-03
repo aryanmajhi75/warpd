@@ -10,7 +10,7 @@ class SongCard extends StatefulWidget {
 class _SongCardState extends State<SongCard> {
   @override
   Widget build(BuildContext context) {
-    // final width = MediaQuery.of(context).size.width;
+    final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Container(
       color: Colors.transparent,
@@ -19,6 +19,7 @@ class _SongCardState extends State<SongCard> {
       child: Stack(
         children: [
           Card(
+            clipBehavior: Clip.antiAliasWithSaveLayer,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(25),
             ),
@@ -27,20 +28,16 @@ class _SongCardState extends State<SongCard> {
             child: Stack(
               children: [
                 Positioned(
-                  top: 15,
-                  left: 15,
+                  top: height * 0.015,
+                  left: height * 0.02,
                   child: Text(
                     "PLAYING",
                     style: Theme.of(context).textTheme.displayMedium,
-                    // style: TextStyle(
-                    // fontFamily: 'Quicksand',
-                    // color: Colors.white,
-                    // ),
                   ),
                 ),
                 Positioned(
-                  top: 35,
-                  left: 15,
+                  top: height * 0.04,
+                  left: height * 0.02,
                   child: SizedBox(
                     height: 20,
                     width: 180,
@@ -51,8 +48,8 @@ class _SongCardState extends State<SongCard> {
                   ), //lyrics to be displayed line-by-line
                 ),
                 Positioned(
-                  top: 75,
-                  left: 15,
+                  top: height * 0.08,
+                  left: height * 0.02,
                   child: Text(
                     "Charlie Puth",
                     style: Theme.of(context).textTheme.displayMedium,
@@ -62,10 +59,10 @@ class _SongCardState extends State<SongCard> {
             ),
           ),
           Positioned(
-            right: -10,
-            left: 205,
-            top: -25,
-            bottom: 20,
+            right: -(width * 0.28),
+            left: width * 0.2,
+            top: -(width * 0.06),
+            bottom: width * 0.05,
             child: Image.asset(
                 'images/charlie_puth.png'), //change  the name of artist by using a name variable
           ),

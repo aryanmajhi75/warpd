@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:provider/provider.dart';
 import 'package:spotify/constants.dart';
+import 'package:spotify/theme/themeProvider.dart';
+import 'package:spotify/theme/themes.dart';
 
 class PlaylistItems extends StatefulWidget {
   const PlaylistItems({super.key});
@@ -13,21 +17,26 @@ class _PlaylistItemsState extends State<PlaylistItems> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+    print("Width : $width");
     return Container(
-      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: spotifyGray,
+        color: Provider.of<ThemeProvider>(context).getThemeData() == lightMode
+            ? spotifyGray
+            : spotifyBlack,
         borderRadius: BorderRadius.circular(10),
       ),
-      height: 80,
+      height: height * 0.09,
       child: Row(
         children: [
           ElevatedButton(
             style: const ButtonStyle(
               shape: MaterialStatePropertyAll(CircleBorder()),
-              fixedSize: MaterialStatePropertyAll(
-                Size(5, 5),
-              ),
+              // fixedSize: MaterialStatePropertyAll(
+              //   Size(5, 5),
+              // ),
+              alignment: Alignment.center,
             ),
             onPressed: () {
               Navigator.pushNamed(context, '/musicplayer');
@@ -36,12 +45,9 @@ class _PlaylistItemsState extends State<PlaylistItems> {
               Icons.play_arrow_rounded,
             ),
           ),
-          const SizedBox(
-            width: 10,
-          ),
           Container(
-            height: 60,
-            width: 140,
+            height: height * 0.07,
+            width: width * 0.37,
             color: Colors.transparent,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -51,8 +57,8 @@ class _PlaylistItemsState extends State<PlaylistItems> {
                   'Song Name',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                const SizedBox(
-                  height: 5,
+                const Gap(
+                  5,
                 ),
                 Text(
                   "Artist Name",
@@ -61,27 +67,35 @@ class _PlaylistItemsState extends State<PlaylistItems> {
               ],
             ),
           ),
-          const SizedBox(
-            width: 20,
-          ),
+          // const Gap(
+          //   3,
+          // ),
           Text(
-            "0:00",
+            "00:00",
             style: Theme.of(context).textTheme.displayMedium,
           ),
-          const SizedBox(
-            width: 15,
+          const Gap(
+            4,
           ),
           ElevatedButton(
             style: ButtonStyle(
-              shape: const MaterialStatePropertyAll(CircleBorder()),
-              fixedSize: const MaterialStatePropertyAll(
-                Size(5, 5),
+              shape: const MaterialStatePropertyAll(
+                CircleBorder(),
               ),
+              // fixedSize: const MaterialStatePropertyAll(
+              //   Size(5, 5),
+              // ),
+              overlayColor: MaterialStatePropertyAll(
+                spotifyGreen.withOpacity(0.3),
+              ),
+
+              alignment: Alignment.center,
               backgroundColor:
                   const MaterialStatePropertyAll(Colors.transparent),
-              iconColor: _isPressed
-                  ? MaterialStatePropertyAll(spotifyGreen)
-                  : const MaterialStatePropertyAll(Colors.black38),
+              iconColor: Provider.of<ThemeProvider>(context).getThemeData() ==
+                      lightMode
+                  ? MaterialStatePropertyAll(spotifyDarkGray)
+                  : MaterialStatePropertyAll(spotifyGray),
             ),
             onPressed: () {
               if (_isPressed) {

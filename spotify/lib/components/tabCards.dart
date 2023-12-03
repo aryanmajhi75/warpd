@@ -10,8 +10,11 @@ class TabCards extends StatefulWidget {
 class _TabCardsState extends State<TabCards> {
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
+    print(height);
     return SizedBox(
-      height: 150,
+      height: height * 0.02,
       child: Stack(
         children: [
           Container(
@@ -28,9 +31,9 @@ class _TabCardsState extends State<TabCards> {
             child: ElevatedButton(
               onPressed: () {},
               style: const ButtonStyle(
-                fixedSize: MaterialStatePropertyAll(
-                  Size(3, 3),
-                ),
+                // fixedSize: MaterialStatePropertyAll(
+                //   Size(3, 3),
+                // ),
                 backgroundColor: MaterialStatePropertyAll(
                   Color(0xFFBBB8B8),
                   // Colors.transparent,

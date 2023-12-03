@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:spotify/components/customNavbar.dart';
 import 'package:spotify/pages/musicplayer.dart';
-import 'package:spotify/themes.dart';
+import 'package:spotify/theme/themeProvider.dart';
 
 void main() {
-  runApp(const Spotify());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const Spotify(),
+    ),
+  );
 }
 
 class Spotify extends StatelessWidget {
@@ -15,7 +21,7 @@ class Spotify extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/home',
-      theme: AppTheme.lightTheme,
+      theme: Provider.of<ThemeProvider>(context).themeData,
       routes: {
         '/home': (context) => const CustomNavBar(),
         '/musicplayer': (context) => const MusicPlayer(),

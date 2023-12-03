@@ -13,9 +13,11 @@ class _TabListState extends State<TabList> {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
     return SizedBox(
       // color: Colors.pinkAccent,
-      height: 280,
+      height: height * 0.35,
       child: Column(
         children: [
           DefaultTabController(
@@ -28,12 +30,12 @@ class _TabListState extends State<TabList> {
                 right: 10,
                 top: 0,
               ),
-              padding: const EdgeInsets.only(
-                bottom: 0,
-                left: 0,
-                right: 10,
-                top: 0,
-              ),
+              // padding: const EdgeInsets.only(
+              //   bottom: 0,
+              //   left: 0,
+              //   right: 10,
+              //   top: 0,
+              // ),
               indicatorColor: const Color(0xFF1AB40C),
               indicatorWeight: 3,
               onTap: (value) {
@@ -43,35 +45,35 @@ class _TabListState extends State<TabList> {
               indicatorSize: TabBarIndicatorSize.label,
               tabs: [
                 Tab(
-                  height: 24.0,
+                  height: height * 0.03,
                   child: Text(
                     "Artists",
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 Tab(
-                  height: 24.0,
+                  height: height * 0.03,
                   child: Text(
                     "Podcasts",
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 Tab(
-                  height: 24.0,
+                  height: height * 0.03,
                   child: Text(
                     "Liked",
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 Tab(
-                  height: 24.0,
+                  height: height * 0.03,
                   child: Text(
                     "Trending",
                     style: Theme.of(context).textTheme.headlineMedium,
                   ),
                 ),
                 Tab(
-                  height: 24.0,
+                  height: height * 0.03,
                   child: Text(
                     "Recommended",
                     style: Theme.of(context).textTheme.headlineMedium,
@@ -81,7 +83,7 @@ class _TabListState extends State<TabList> {
             ),
           ),
           Container(
-            height: 235,
+            height: height * 0.29,
             padding: const EdgeInsets.all(5),
             // color: Colors.pinkAccent,
             child: ListView(

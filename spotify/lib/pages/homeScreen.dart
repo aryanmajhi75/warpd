@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:appwrite/appwrite.dart';
+import 'package:gap/gap.dart';
 import 'package:spotify/components/PlaylistItems.dart';
 
 import '../components/songcard.dart';
@@ -31,7 +32,6 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: () {},
           icon: const Icon(
             Icons.search,
-            size: 30,
           ),
         ),
         actions: const [
@@ -44,21 +44,21 @@ class _HomeScreenState extends State<HomeScreen> {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(
-            left: 20,
-            right: 20,
+            left: 5,
+            right: 5,
           ),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const SizedBox(
-                  height: 10,
+                const Gap(
+                  10,
                 ),
                 const Center(
                   child: SongCard(),
                 ),
                 const TabList(),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
                       "Playlist",
