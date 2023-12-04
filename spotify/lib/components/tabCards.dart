@@ -31,9 +31,6 @@ class _TabCardsState extends State<TabCards> {
             child: ElevatedButton(
               onPressed: () {},
               style: const ButtonStyle(
-                // fixedSize: MaterialStatePropertyAll(
-                //   Size(3, 3),
-                // ),
                 backgroundColor: MaterialStatePropertyAll(
                   Color(0xFFBBB8B8),
                   // Colors.transparent,

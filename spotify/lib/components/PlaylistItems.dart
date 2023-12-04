@@ -67,9 +67,6 @@ class _PlaylistItemsState extends State<PlaylistItems> {
               ],
             ),
           ),
-          // const Gap(
-          //   3,
-          // ),
           Text(
             "00:00",
             style: Theme.of(context).textTheme.displayMedium,
@@ -82,13 +79,9 @@ class _PlaylistItemsState extends State<PlaylistItems> {
               shape: const MaterialStatePropertyAll(
                 CircleBorder(),
               ),
-              // fixedSize: const MaterialStatePropertyAll(
-              //   Size(5, 5),
-              // ),
               overlayColor: MaterialStatePropertyAll(
                 spotifyGreen.withOpacity(0.3),
               ),
-
               alignment: Alignment.center,
               backgroundColor:
                   const MaterialStatePropertyAll(Colors.transparent),

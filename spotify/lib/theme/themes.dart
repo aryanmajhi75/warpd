@@ -20,7 +20,7 @@ ThemeData lightMode = ThemeData(
       color: spotifyDarkGray,
     ),
   ),
-  scaffoldBackgroundColor: spotifyWhite,
+  // scaffoldBackgroundColor: spotifyWhite,
   textTheme: TextTheme(
     displayMedium: TextStyle(
       color: spotifyBlack,
@@ -64,7 +64,7 @@ ThemeData lightMode = ThemeData(
       visualDensity: VisualDensity.comfortable,
       // backgroundColor: MaterialStatePropertyAll(spotifyGray),
       iconColor: MaterialStatePropertyAll(spotifyBlack),
-      elevation: const MaterialStatePropertyAll(0),
+      // elevation: const MaterialStatePropertyAll(0),
       iconSize: const MaterialStatePropertyAll(30),
       overlayColor: MaterialStatePropertyAll(spotifyGreen),
       alignment: Alignment.center,
@@ -135,7 +135,7 @@ ThemeData darkMode = ThemeData(
       // backgroundColor: MaterialStatePropertyAll(spotifyd),
       iconColor: MaterialStatePropertyAll(spotifyGreen),
       overlayColor: MaterialStatePropertyAll(spotifyGreen),
-      elevation: const MaterialStatePropertyAll(0),
+      // elevation: const MaterialStatePropertyAll(0),
       iconSize: const MaterialStatePropertyAll(30),
       // shadowColor: MaterialStatePropertyAll(spotifyGray),
       alignment: Alignment.center,
