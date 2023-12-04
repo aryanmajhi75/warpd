@@ -15,6 +15,7 @@ dependencies:
   gap: 
   provider: 
   tab_container: 
+  country_flags: 
 
 dev_dependencies:
   flutter_test:

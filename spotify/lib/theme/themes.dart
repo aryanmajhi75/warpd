@@ -46,6 +46,15 @@ ThemeData lightMode = ThemeData(
       fontFamily: 'Quicksand',
       fontWeight: FontWeight.bold,
     ),
+    displaySmall: TextStyle(
+      // debugLabel: "Log Out",
+      color: Colors.red[800],
+      decoration: TextDecoration.none,
+      fontSize: 18,
+      overflow: TextOverflow.ellipsis,
+      fontFamily: 'Quicksand',
+      fontWeight: FontWeight.w600,
+    ),
   ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     backgroundColor: spotifyWhite,
@@ -57,6 +66,14 @@ ThemeData lightMode = ThemeData(
     ),
     unselectedIconTheme: const IconThemeData(
       size: 30,
+    ),
+  ),
+  iconButtonTheme: const IconButtonThemeData(
+    style: ButtonStyle(
+      iconSize: MaterialStatePropertyAll(40),
+      // iconColor: MaterialStatePropertyAll(spotifyGray),
+      // foregroundColor: MaterialStatePropertyAll(spotifyGray),
+      visualDensity: VisualDensity.comfortable,
     ),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
@@ -116,6 +133,15 @@ ThemeData darkMode = ThemeData(
       fontFamily: 'Quicksand',
       fontWeight: FontWeight.bold,
     ),
+    displaySmall: TextStyle(
+      // debugLabel: "Log Out",
+      color: Colors.red[800],
+      decoration: TextDecoration.none,
+      fontSize: 18,
+      overflow: TextOverflow.ellipsis,
+      fontFamily: 'Quicksand',
+      fontWeight: FontWeight.w600,
+    ),
   ),
   bottomNavigationBarTheme: BottomNavigationBarThemeData(
     backgroundColor: spotifyBlack,
@@ -129,14 +155,24 @@ ThemeData darkMode = ThemeData(
       color: spotifyWhite,
     ),
   ),
-  elevatedButtonTheme: ElevatedButtonThemeData(
+  iconButtonTheme: IconButtonThemeData(
+    style: ButtonStyle(
+      overlayColor: MaterialStatePropertyAll(
+        spotifyGreen.withOpacity(0.5),
+      ),
+      iconColor: MaterialStatePropertyAll(spotifyGreen),
+      foregroundColor: MaterialStatePropertyAll(spotifyGreen),
+      visualDensity: VisualDensity.comfortable,
+    ),
+  ),
+  elevatedButtonTheme: const ElevatedButtonThemeData(
     style: ButtonStyle(
       visualDensity: VisualDensity.comfortable,
       // backgroundColor: MaterialStatePropertyAll(spotifyd),
-      iconColor: MaterialStatePropertyAll(spotifyGreen),
-      overlayColor: MaterialStatePropertyAll(spotifyGreen),
+      // iconColor: MaterialStatePropertyAll(spotifyGreen),
+      // overlayColor: MaterialStatePropertyAll(spotifyGreen),
       // elevation: const MaterialStatePropertyAll(0),
-      iconSize: const MaterialStatePropertyAll(30),
+      iconSize: MaterialStatePropertyAll(30),
       // shadowColor: MaterialStatePropertyAll(spotifyGray),
       alignment: Alignment.center,
     ),

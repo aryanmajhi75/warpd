@@ -82,13 +82,16 @@ class _PlaylistItemsState extends State<PlaylistItems> {
               overlayColor: MaterialStatePropertyAll(
                 spotifyGreen.withOpacity(0.3),
               ),
-              alignment: Alignment.center,
-              backgroundColor:
-                  const MaterialStatePropertyAll(Colors.transparent),
+              // alignment: Alignment.center,
+              // padding: const MaterialStatePropertyAll(EdgeInsets.all(1)),
               iconColor: Provider.of<ThemeProvider>(context).getThemeData() ==
                       lightMode
-                  ? MaterialStatePropertyAll(spotifyDarkGray)
-                  : MaterialStatePropertyAll(spotifyGray),
+                  ? _isPressed == true
+                      ? MaterialStatePropertyAll(spotifyGreen)
+                      : MaterialStatePropertyAll(spotifyDarkGray)
+                  : _isPressed == true
+                      ? MaterialStatePropertyAll(spotifyGreen)
+                      : MaterialStatePropertyAll(spotifyGray),
             ),
             onPressed: () {
               if (_isPressed) {
@@ -99,6 +102,7 @@ class _PlaylistItemsState extends State<PlaylistItems> {
             },
             child: const Icon(
               Icons.favorite,
+              size: 30,
             ),
           ),
         ],

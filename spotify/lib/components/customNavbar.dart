@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/constants.dart';
+import 'package:spotify/pages/explore.dart';
+import 'package:spotify/pages/favorites.dart';
 import 'package:spotify/pages/homeScreen.dart';
 import 'package:spotify/pages/userProfile.dart';
 
@@ -21,8 +23,8 @@ class _CustomNavBarState extends State<CustomNavBar> {
 
   final List<Widget> _pages = [
     HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+    ExplorePage(),
+    FavoritePage(),
     UserProfile(),
   ];
 
@@ -33,6 +35,10 @@ class _CustomNavBarState extends State<CustomNavBar> {
       bottomNavigationBar: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: BottomNavigationBar(
+          selectedLabelStyle: const TextStyle(
+            fontFamily: 'Quicksand',
+            fontWeight: FontWeight.bold,
+          ),
           elevation: 0,
           currentIndex: _selectedIndex,
           onTap: _navigation,
