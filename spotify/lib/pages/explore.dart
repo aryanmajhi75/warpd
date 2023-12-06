@@ -10,6 +10,20 @@ class ExplorePage extends StatefulWidget {
 class _ExplorePageState extends State<ExplorePage> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Image.asset(
+          "images/Spotify_Logo.png",
+          height: 30,
+        ),
+        elevation: 0,
+      ),
+      body: SafeArea(
+        child: Column(
+          children: [],
+        ),
+      ),
+    );
   }
 }
