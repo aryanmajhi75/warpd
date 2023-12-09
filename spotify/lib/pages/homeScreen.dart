@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:appwrite/appwrite.dart';
 import 'package:gap/gap.dart';
 import 'package:spotify/components/PlaylistItems.dart';
+import 'package:spotify/constants.dart';
+import 'package:spotify/pages/search.dart';
 
 import '../components/songcard.dart';
 import '../components/tabList.dart';
@@ -22,25 +24,35 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: true,
         title: Image.asset(
           "images/Spotify_Logo.png",
           height: 30,
         ),
         elevation: 0,
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.search,
-          ),
-        ),
-        actions: const [
-          Icon(
-            Icons.more_vert_rounded,
-            size: 30,
-          ),
-        ],
+
+        // actions: const [
+        //   Icon(
+        //     Icons.more_vert_rounded,
+        //     size: 30,
+        //   ),
+        // ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const SearchScreen(),
+            ),
+          );
+        },
+        child: const Icon(
+          Icons.search,
+        ),
+      ),
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(

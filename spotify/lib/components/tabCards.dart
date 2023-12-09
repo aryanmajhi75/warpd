@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class TabCards extends StatefulWidget {
-  const TabCards({super.key});
+  late String title;
+  TabCards({required this.title, super.key});
 
   @override
   State<TabCards> createState() => _TabCardsState();
@@ -10,9 +11,9 @@ class TabCards extends StatefulWidget {
 class _TabCardsState extends State<TabCards> {
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
+    // final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
-    print(height);
+    // print(height);
     return SizedBox(
       height: height * 0.02,
       child: Stack(
@@ -52,7 +53,7 @@ class _TabCardsState extends State<TabCards> {
             top: 185,
             left: 10,
             child: Text(
-              "Artist Name",
+              widget.title,
               style: Theme.of(context).textTheme.displayLarge,
             ),
           ),

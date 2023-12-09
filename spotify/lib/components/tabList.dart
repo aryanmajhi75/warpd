@@ -14,7 +14,7 @@ class _TabListState extends State<TabList> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    final width = MediaQuery.of(context).size.width;
+    // final width = MediaQuery.of(context).size.width;
     return SizedBox(
       // color: Colors.pinkAccent,
       height: height * 0.35,
@@ -90,13 +90,13 @@ class _TabListState extends State<TabList> {
               itemExtent: 145,
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.all(10),
-              children: const [
-                TabCards(),
-                TabCards(),
-                TabCards(),
-                TabCards(),
-                TabCards(),
-                TabCards(),
+              children: [
+                TabCards(title: "Artist Name"),
+                TabCards(title: "Artist Name"),
+                TabCards(title: "Artist Name"),
+                TabCards(title: "Artist Name"),
+                TabCards(title: "Artist Name"),
+                TabCards(title: "Artist Name"),
               ],
             ),
           ),
