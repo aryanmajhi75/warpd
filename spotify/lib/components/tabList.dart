@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:spotify/components/tabCards.dart';
 
 class TabList extends StatefulWidget {
@@ -30,12 +31,6 @@ class _TabListState extends State<TabList> {
                 right: 10,
                 top: 0,
               ),
-              // padding: const EdgeInsets.only(
-              //   bottom: 0,
-              //   left: 0,
-              //   right: 10,
-              //   top: 0,
-              // ),
               indicatorColor: const Color(0xFF1AB40C),
               indicatorWeight: 3,
               onTap: (value) {
@@ -86,18 +81,16 @@ class _TabListState extends State<TabList> {
             height: height * 0.29,
             padding: const EdgeInsets.all(5),
             // color: Colors.pinkAccent,
-            child: ListView(
-              itemExtent: 145,
+            child: ListView.separated(
+              separatorBuilder: (context, index) {
+                return const Gap(10);
+              },
+              itemCount: 5,
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.all(10),
-              children: [
-                TabCards(title: "Artist Name"),
-                TabCards(title: "Artist Name"),
-                TabCards(title: "Artist Name"),
-                TabCards(title: "Artist Name"),
-                TabCards(title: "Artist Name"),
-                TabCards(title: "Artist Name"),
-              ],
+              itemBuilder: (context, index) {
+                return const TabCards(title: "Artist Name");
+              },
             ),
           ),
         ],

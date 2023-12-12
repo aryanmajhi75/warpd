@@ -46,6 +46,14 @@ ThemeData lightMode = ThemeData(
       fontFamily: 'Quicksand',
       fontWeight: FontWeight.bold,
     ),
+    headlineLarge: TextStyle(
+      color: spotifyBlack,
+      decoration: TextDecoration.none,
+      fontSize: 40,
+      overflow: TextOverflow.ellipsis,
+      fontFamily: 'Quicksand',
+      fontWeight: FontWeight.bold,
+    ),
     displaySmall: TextStyle(
       // debugLabel: "Log Out",
       color: Colors.red[800],
@@ -68,14 +76,15 @@ ThemeData lightMode = ThemeData(
       size: 30,
     ),
   ),
-  iconButtonTheme: const IconButtonThemeData(
+  iconButtonTheme: IconButtonThemeData(
     style: ButtonStyle(
-      iconSize: MaterialStatePropertyAll(40),
-      // iconColor: MaterialStatePropertyAll(spotifyGray),
+      iconSize: const MaterialStatePropertyAll(40),
+      iconColor: MaterialStatePropertyAll(spotifyDarkGray),
       // foregroundColor: MaterialStatePropertyAll(spotifyGray),
       visualDensity: VisualDensity.comfortable,
     ),
   ),
+  iconTheme: IconThemeData(color: spotifyDarkGray),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
       visualDensity: VisualDensity.comfortable,
@@ -133,6 +142,14 @@ ThemeData darkMode = ThemeData(
       fontFamily: 'Quicksand',
       fontWeight: FontWeight.bold,
     ),
+    headlineLarge: TextStyle(
+      color: spotifyWhite,
+      decoration: TextDecoration.none,
+      fontSize: 40,
+      overflow: TextOverflow.ellipsis,
+      fontFamily: 'Quicksand',
+      fontWeight: FontWeight.bold,
+    ),
     displaySmall: TextStyle(
       // debugLabel: "Log Out",
       color: Colors.red[800],
@@ -158,13 +175,14 @@ ThemeData darkMode = ThemeData(
   iconButtonTheme: IconButtonThemeData(
     style: ButtonStyle(
       overlayColor: MaterialStatePropertyAll(
-        spotifyGreen.withOpacity(0.5),
+        spotifyGreen,
       ),
       iconColor: MaterialStatePropertyAll(spotifyGreen),
       foregroundColor: MaterialStatePropertyAll(spotifyGreen),
       visualDensity: VisualDensity.comfortable,
     ),
   ),
+  iconTheme: IconThemeData(color: spotifyGreen),
   elevatedButtonTheme: const ElevatedButtonThemeData(
     style: ButtonStyle(
       visualDensity: VisualDensity.comfortable,

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/constants.dart';
 
 class TabCards extends StatefulWidget {
-  late String title;
-  TabCards({required this.title, super.key});
+  final String title;
+  const TabCards({required this.title, super.key});
 
   @override
   State<TabCards> createState() => _TabCardsState();
@@ -19,32 +20,32 @@ class _TabCardsState extends State<TabCards> {
       child: Stack(
         children: [
           Container(
-            height: 170,
-            width: 130,
+            height: height * 0.2,
+            width: height * 0.2,
             decoration: BoxDecoration(
-              color: const Color(0xFFDAD7D7),
+              color: spotifyGray,
               borderRadius: BorderRadius.circular(25),
             ),
           ),
           Positioned(
-            top: 145,
-            left: 70,
+            top: height * 0.17,
+            left: height * 0.12,
             child: ElevatedButton(
               onPressed: () {},
-              style: const ButtonStyle(
+              style: ButtonStyle(
                 backgroundColor: MaterialStatePropertyAll(
-                  Color(0xFFBBB8B8),
+                  spotifyGray,
                   // Colors.transparent,
                 ),
-                shape: MaterialStatePropertyAll(CircleBorder()),
-                animationDuration: Duration(
+                shape: const MaterialStatePropertyAll(CircleBorder()),
+                animationDuration: const Duration(
                   seconds: 1,
                 ),
                 alignment: Alignment.center,
               ),
-              child: const Icon(
+              child: Icon(
                 Icons.play_arrow_rounded,
-                color: Color(0xFF383838),
+                color: spotifyDarkGray,
                 size: 30,
               ),
             ),

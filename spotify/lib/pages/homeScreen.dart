@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:appwrite/appwrite.dart';
 import 'package:gap/gap.dart';
-import 'package:spotify/components/PlaylistItems.dart';
-import 'package:spotify/constants.dart';
+import 'package:spotify/components/songTile.dart';
 import 'package:spotify/pages/search.dart';
 
 import '../components/songcard.dart';
@@ -31,13 +30,6 @@ class _HomeScreenState extends State<HomeScreen> {
           height: 30,
         ),
         elevation: 0,
-
-        // actions: const [
-        //   Icon(
-        //     Icons.more_vert_rounded,
-        //     size: 30,
-        //   ),
-        // ],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -88,7 +80,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(
                   height: 300,
                   // color: Colors.amberAccent,
-                  child: ListView.builder(
+                  child: ListView.separated(
+                    separatorBuilder: (context, index) {
+                      return const Gap(5);
+                    },
                     padding: const EdgeInsets.only(
                       top: 10,
                       bottom: 10,
@@ -98,12 +93,12 @@ class _HomeScreenState extends State<HomeScreen> {
                     itemCount: 5,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(10),
                         child: InkWell(
                           onTap: () {
                             Navigator.pushNamed(context, '/musicplayer');
                           },
-                          child: const PlaylistItems(),
+                          child: const SongTile(),
                         ),
                       );
                     },
