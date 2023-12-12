@@ -169,7 +169,7 @@ ThemeData darkMode = ThemeData(
     ),
     selectedIconTheme: IconThemeData(
       size: 30,
-      color: spotifyWhite,
+      color: spotifyGreen,
     ),
   ),
   iconButtonTheme: IconButtonThemeData(

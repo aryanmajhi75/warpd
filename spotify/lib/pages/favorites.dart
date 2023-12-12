@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/components/favoriteTab.dart';
 import 'package:spotify/pages/search.dart';
 
 class FavoritePage extends StatefulWidget {
@@ -35,9 +36,11 @@ class _FavoritePageState extends State<FavoritePage> {
         ),
       ),
       floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-      body: SafeArea(
+      body: const SafeArea(
         child: Column(
-          children: [],
+          children: [
+            FavouriteTab(),
+          ],
         ),
       ),
     );
