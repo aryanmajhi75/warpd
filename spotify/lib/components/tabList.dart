@@ -89,7 +89,10 @@ class _TabListState extends State<TabList> {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.all(10),
               itemBuilder: (context, index) {
-                return const TabCards(title: "Artist Name");
+                return const TabCards(
+                  title: "Artist Name",
+                  url: "images/loser.jpg",
+                );
               },
             ),
           ),

@@ -3,7 +3,8 @@ import 'package:spotify/constants.dart';
 
 class TabCards extends StatefulWidget {
   final String title;
-  const TabCards({required this.title, super.key});
+  final String url;
+  const TabCards({required this.title, required this.url, super.key});
 
   @override
   State<TabCards> createState() => _TabCardsState();
@@ -19,12 +20,17 @@ class _TabCardsState extends State<TabCards> {
       height: height * 0.02,
       child: Stack(
         children: [
-          Container(
-            height: height * 0.2,
-            width: height * 0.2,
-            decoration: BoxDecoration(
-              color: spotifyGray,
-              borderRadius: BorderRadius.circular(25),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(25),
+            child: Container(
+              height: height * 0.2,
+              width: height * 0.2,
+              decoration: BoxDecoration(
+                color: spotifyGray,
+              ),
+              child: Image.asset(
+                widget.url,
+              ),
             ),
           ),
           Positioned(

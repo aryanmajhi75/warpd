@@ -17,7 +17,7 @@ class _FavouriteTabState extends State<FavouriteTab> {
     return Column(
       children: [
         DefaultTabController(
-          length: 5,
+          length: 2,
           animationDuration: const Duration(milliseconds: 500),
           child: TabBar(
             labelPadding: const EdgeInsets.only(
