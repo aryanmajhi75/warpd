@@ -20,19 +20,17 @@ class _ButtonRowState extends State<ButtonRow> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      // mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         //Repeat Button
         ElevatedButton(
           style: ButtonStyle(
             shape: const MaterialStatePropertyAll(CircleBorder()),
-            // fixedSize: const MaterialStatePropertyAll(
-            //   Size(5, 5),
-            // ),
+
             backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
             animationDuration: const Duration(seconds: 1),
-            padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
+            // padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
             iconColor: repeat == 0
                 ? const MaterialStatePropertyAll(Colors.black38)
                 : MaterialStatePropertyAll(spotifyGreen),
@@ -69,7 +67,7 @@ class _ButtonRowState extends State<ButtonRow> {
             //   Size(25, 25),
             // ),
             animationDuration: Duration(seconds: 1),
-            padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+            // padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
             backgroundColor: MaterialStatePropertyAll(Colors.transparent),
             iconColor: MaterialStatePropertyAll(Colors.black),
           ),
@@ -92,14 +90,14 @@ class _ButtonRowState extends State<ButtonRow> {
             shape: const MaterialStatePropertyAll(
               CircleBorder(),
             ),
-            fixedSize: const MaterialStatePropertyAll(
-              Size(65, 65),
-            ),
-            padding: const MaterialStatePropertyAll(
-              EdgeInsets.only(
-                right: 1,
-              ),
-            ),
+            // fixedSize: const MaterialStatePropertyAll(
+            //   Size(65, 65),
+            // ),
+            // padding: const MaterialStatePropertyAll(
+            //   EdgeInsets.only(
+            //     right: 1,
+            //   ),
+            // ),
             elevation: const MaterialStatePropertyAll(0),
             backgroundColor: MaterialStatePropertyAll(spotifyGreen),
             iconColor: MaterialStatePropertyAll(spotifyWhite),
@@ -130,7 +128,7 @@ class _ButtonRowState extends State<ButtonRow> {
             //   Size(5, 5),
             // ),
             animationDuration: Duration(seconds: 1),
-            padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
+            // padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
             backgroundColor: MaterialStatePropertyAll(Colors.transparent),
             iconColor: MaterialStatePropertyAll(Colors.black),
           ),
@@ -155,7 +153,7 @@ class _ButtonRowState extends State<ButtonRow> {
             //   Size(5, 5),
             // ),
             animationDuration: const Duration(seconds: 1),
-            padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
+            // padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
             backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
             iconColor: _isShuffle
                 ? MaterialStatePropertyAll(spotifyGreen)
