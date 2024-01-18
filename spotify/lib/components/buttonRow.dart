@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:spotify/constants.dart';
+import 'package:spotify/theme/themeProvider.dart';
+import 'package:spotify/theme/themes.dart';
 
 class ButtonRow extends StatefulWidget {
   const ButtonRow({super.key});
@@ -20,39 +23,31 @@ class _ButtonRowState extends State<ButtonRow> {
   @override
   Widget build(BuildContext context) {
     return Row(
-      // mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         //Repeat Button
-        ElevatedButton(
-          style: ButtonStyle(
-            shape: const MaterialStatePropertyAll(CircleBorder()),
-
-            backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
-            animationDuration: const Duration(seconds: 1),
-            // padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
-            iconColor: repeat == 0
-                ? const MaterialStatePropertyAll(Colors.black38)
-                : MaterialStatePropertyAll(spotifyGreen),
-          ),
+        FloatingActionButton.small(
+          backgroundColor: spotifyWhite,
+          foregroundColor: repeat != 0 ? spotifyGreen : spotifyDarkGray,
           onPressed: () {
             if (repeat == 0) {
               //repeat off
               setState(() {
-                repeat = 1;
                 repeatButton = const Icon(Icons.repeat_rounded);
+                repeat = 1;
               });
             } else if (repeat == 1) //repeat all songs
             {
               setState(() {
-                repeat = 2;
                 repeatButton = const Icon(Icons.repeat_one_rounded);
+                repeat = 2;
               });
             } else if (repeat == 2) //repeat current song
             {
               setState(() {
-                repeat = 0;
                 repeatButton = const Icon(Icons.repeat_rounded);
+                repeat = 0;
               });
             }
           },
@@ -60,17 +55,7 @@ class _ButtonRowState extends State<ButtonRow> {
         ),
 
         //Previous Button
-        ElevatedButton(
-          style: const ButtonStyle(
-            shape: MaterialStatePropertyAll(CircleBorder()),
-            // fixedSize: MaterialStatePropertyAll(
-            //   Size(25, 25),
-            // ),
-            animationDuration: Duration(seconds: 1),
-            // padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
-            backgroundColor: MaterialStatePropertyAll(Colors.transparent),
-            iconColor: MaterialStatePropertyAll(Colors.black),
-          ),
+        FloatingActionButton.small(
           onPressed: () {
             // if (_isPressed) {
             //   setState(() => _isPressed = false);
@@ -80,28 +65,12 @@ class _ButtonRowState extends State<ButtonRow> {
           },
           child: const Icon(
             Icons.skip_previous_rounded,
-            size: 30,
+            size: 40,
           ),
         ),
 
         //Pause/Play Button
-        ElevatedButton(
-          style: ButtonStyle(
-            shape: const MaterialStatePropertyAll(
-              CircleBorder(),
-            ),
-            // fixedSize: const MaterialStatePropertyAll(
-            //   Size(65, 65),
-            // ),
-            // padding: const MaterialStatePropertyAll(
-            //   EdgeInsets.only(
-            //     right: 1,
-            //   ),
-            // ),
-            elevation: const MaterialStatePropertyAll(0),
-            backgroundColor: MaterialStatePropertyAll(spotifyGreen),
-            iconColor: MaterialStatePropertyAll(spotifyWhite),
-          ),
+        FloatingActionButton.large(
           onPressed: () {
             if (_isPlaying) {
               setState(() => _isPlaying = false);
@@ -112,26 +81,16 @@ class _ButtonRowState extends State<ButtonRow> {
           child: _isPlaying
               ? const Icon(
                   Icons.pause_rounded,
-                  size: 50,
+                  size: 60,
                 )
               : const Icon(
                   Icons.play_arrow_rounded,
-                  size: 50,
+                  size: 60,
                 ),
         ),
 
         //Next Button
-        ElevatedButton(
-          style: const ButtonStyle(
-            shape: MaterialStatePropertyAll(CircleBorder()),
-            // fixedSize: MaterialStatePropertyAll(
-            //   Size(5, 5),
-            // ),
-            animationDuration: Duration(seconds: 1),
-            // padding: MaterialStatePropertyAll(EdgeInsets.all(20)),
-            backgroundColor: MaterialStatePropertyAll(Colors.transparent),
-            iconColor: MaterialStatePropertyAll(Colors.black),
-          ),
+        FloatingActionButton.small(
           onPressed: () {
             // if (_isPressed) {
             //   setState(() => _isPressed = false);
@@ -141,24 +100,14 @@ class _ButtonRowState extends State<ButtonRow> {
           },
           child: const Icon(
             Icons.skip_next_rounded,
-            size: 30,
+            size: 40,
           ),
         ),
 
         //Shuffle Songs
-        ElevatedButton(
-          style: ButtonStyle(
-            shape: const MaterialStatePropertyAll(CircleBorder()),
-            // fixedSize: const MaterialStatePropertyAll(
-            //   Size(5, 5),
-            // ),
-            animationDuration: const Duration(seconds: 1),
-            // padding: const MaterialStatePropertyAll(EdgeInsets.all(20)),
-            backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
-            iconColor: _isShuffle
-                ? MaterialStatePropertyAll(spotifyGreen)
-                : const MaterialStatePropertyAll(Colors.black38),
-          ),
+        FloatingActionButton.small(
+          backgroundColor: spotifyWhite,
+          foregroundColor: _isShuffle == false ? spotifyDarkGray : spotifyGreen,
           onPressed: () {
             if (_isShuffle) {
               setState(() => _isShuffle = false);

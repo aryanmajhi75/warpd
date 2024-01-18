@@ -24,7 +24,6 @@ class Spotify extends StatelessWidget {
       theme: Provider.of<ThemeProvider>(context).themeData,
       routes: {
         '/home': (context) => const CustomNavBar(),
-        '/musicplayer': (context) => const MusicPlayer(),
       },
       home: const CustomNavBar(),
     );

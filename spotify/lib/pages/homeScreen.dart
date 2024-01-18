@@ -3,6 +3,7 @@ import 'package:appwrite/appwrite.dart';
 import 'package:gap/gap.dart';
 import 'package:spotify/components/songTile.dart';
 import 'package:spotify/constants.dart';
+import 'package:spotify/pages/musicplayer.dart';
 import 'package:spotify/pages/search.dart';
 
 import '../components/songcard.dart';
@@ -61,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   height * 0.01,
                 ),
                 const Center(
-                  child: SongCard(),
+                  child: SongCard(imageUrl: "images/charlie_puth.png"),
                 ),
                 const TabList(),
                 Gap(
@@ -102,7 +103,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         padding: const EdgeInsets.all(10),
                         child: InkWell(
                           onTap: () {
-                            Navigator.pushNamed(context, '/musicplayer');
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const MusicPlayer(
+                                    imageUrl: "images/loser.jpg"),
+                              ),
+                            );
                           },
                           child: const SongTile(),
                         ),

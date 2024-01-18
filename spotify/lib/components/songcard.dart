@@ -3,7 +3,8 @@ import 'package:gap/gap.dart';
 import 'package:spotify/pages/musicplayer.dart';
 
 class SongCard extends StatefulWidget {
-  const SongCard({super.key});
+  final String imageUrl;
+  const SongCard({super.key, required this.imageUrl});
 
   @override
   State<SongCard> createState() => _SongCardState();
@@ -19,7 +20,7 @@ class _SongCardState extends State<SongCard> {
         Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => const MusicPlayer(),
+            builder: (context) => MusicPlayer(imageUrl: "images/loser.jpg"),
           ),
         );
       },
@@ -76,7 +77,7 @@ class _SongCardState extends State<SongCard> {
               bottom: height * 0.02,
               // right: width * 0.6,
               child: Image.asset(
-                'images/charlie_puth.png',
+                widget.imageUrl,
                 fit: BoxFit.contain,
                 height: height * 0.16,
               ),

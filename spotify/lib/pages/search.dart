@@ -12,7 +12,7 @@ class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
-    // final width = MediaQuery.of(context).size.width;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -29,16 +29,29 @@ class _SearchScreenState extends State<SearchScreen> {
       body: SafeArea(
         child: Column(
           children: [
-            TextField(
-              cursorOpacityAnimates: true,
-              cursorWidth: 10,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(20),
-                  gapPadding: 10,
+            Center(
+              child: SizedBox(
+                width: width * 0.8,
+                child: TextField(
+                  cursorOpacityAnimates: true,
+                  cursorWidth: 10,
+                  decoration: InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(30),
+                      borderSide: BorderSide(
+                        color: spotifyGreen,
+                        width: 4,
+                        style: BorderStyle.solid,
+                      ),
+                    ),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      gapPadding: 10,
+                    ),
+                    hintText: 'Type here to search',
+                    hintStyle: Theme.of(context).textTheme.displayMedium,
+                  ),
                 ),
-                hintText: 'Type here to search',
-                hintStyle: Theme.of(context).textTheme.displayMedium,
               ),
             ),
           ],

@@ -43,9 +43,9 @@ class _UserDetailsState extends State<UserDetails> {
                   username,
                   style: Theme.of(context).textTheme.displayLarge,
                 ),
-                IconButton(
-                  alignment: Alignment.center,
-                  visualDensity: VisualDensity.compact,
+                FloatingActionButton.small(
+                  // alignment: Alignment.center,
+                  // visualDensity: VisualDensity.compact,
                   onPressed: () {
                     showDialog(
                         context: context,
@@ -83,9 +83,13 @@ class _UserDetailsState extends State<UserDetails> {
                           );
                         });
                   },
-                  icon: const Icon(
+                  child: Icon(
                     Icons.mode_edit_rounded,
                     size: 20,
+                    color: Provider.of<ThemeProvider>(context).getThemeData() ==
+                            lightMode
+                        ? spotifyDarkGray
+                        : spotifyGray,
                   ),
                 ),
               ],

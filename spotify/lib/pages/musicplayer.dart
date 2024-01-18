@@ -1,13 +1,15 @@
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:gap/gap.dart';
 import 'package:spotify/components/buttonRow.dart';
 import 'package:spotify/components/customAnimatedButton.dart';
 import 'package:spotify/constants.dart';
 
 class MusicPlayer extends StatefulWidget {
-  const MusicPlayer({super.key});
+  final String imageUrl;
+  const MusicPlayer({super.key, required this.imageUrl});
 
   @override
   State<MusicPlayer> createState() => _MusicPlayerState();
@@ -27,12 +29,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        actions: const [
-          Icon(
-            Icons.more_vert_rounded,
-            size: 30,
-          ),
-        ],
+        // actions: const [
+        //   Icon(
+        //     Icons.more_vert_rounded,
+        //     size: 30,
+        //   ),
+        // ],
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: const Icon(Icons.arrow_back_ios_rounded),
@@ -74,10 +76,28 @@ class _MusicPlayerState extends State<MusicPlayer> {
                   Container(
                     height: height * 0.45,
                     width: width * 0.9,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
+                    decoration: const BoxDecoration(
+                      shape: BoxShape.circle,
+                      // borderRadius: BorderRadius.circular(20),
                       color: Colors.amberAccent,
                     ),
+                    clipBehavior: Clip.antiAlias,
+                    child: Image.asset(
+                      widget.imageUrl,
+                      filterQuality: FilterQuality.high,
+                      fit: BoxFit.contain,
+                    ),
+                  ).animate(
+                    autoPlay: true,
+                    onInit: (controller) => controller.reverse(),
+                    onComplete: (controller) => controller.repeat(),
+                    effects: [
+                      const RotateEffect(
+                        duration: Duration(
+                          seconds: 2,
+                        ),
+                      ),
+                    ],
                   ),
                   Gap(
                     height * 0.02,
@@ -109,7 +129,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                         width * 0.01,
                       ),
                       //Favourite button
-                      FloatingActionButton.small(
+                      FloatingActionButton.large(
                         onPressed: () {
                           if (_isPressed) {
                             setState(() => _isPressed = false);
