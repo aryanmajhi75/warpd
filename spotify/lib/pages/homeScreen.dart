@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:appwrite/appwrite.dart';
 import 'package:gap/gap.dart';
 import 'package:spotify/components/songTile.dart';
+import 'package:spotify/constants.dart';
 import 'package:spotify/pages/search.dart';
 
 import '../components/songcard.dart';
@@ -21,6 +22,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -54,13 +57,16 @@ class _HomeScreenState extends State<HomeScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: [
-                const Gap(
-                  10,
+                Gap(
+                  height * 0.01,
                 ),
                 const Center(
                   child: SongCard(),
                 ),
                 const TabList(),
+                Gap(
+                  height * 0.03,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
@@ -77,9 +83,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ],
                 ),
+                Gap(height * 0.01),
                 SizedBox(
-                  height: 300,
-                  // color: Colors.amberAccent,
+                  height: height * 0.33,
                   child: ListView.separated(
                     separatorBuilder: (context, index) {
                       return const Gap(5);

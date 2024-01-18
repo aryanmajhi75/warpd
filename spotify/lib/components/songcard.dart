@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:spotify/pages/musicplayer.dart';
 
 class SongCard extends StatefulWidget {
@@ -36,6 +37,7 @@ class _SongCardState extends State<SongCard> {
               margin: const EdgeInsets.all(20),
               color: const Color(0xFF1AB40C),
               child: Stack(
+                fit: StackFit.loose,
                 children: [
                   Positioned(
                     top: height * 0.015,
@@ -68,13 +70,16 @@ class _SongCardState extends State<SongCard> {
                 ],
               ),
             ),
+            Gap(height * 0.01),
             Positioned(
-              right: -(width * 0.28),
-              left: width * 0.2,
-              top: -(width * 0.06),
-              bottom: width * 0.05,
+              left: width * 0.6,
+              bottom: height * 0.02,
+              // right: width * 0.6,
               child: Image.asset(
-                  'images/charlie_puth.png'), //change  the name of artist by using a name variable
+                'images/charlie_puth.png',
+                fit: BoxFit.contain,
+                height: height * 0.16,
+              ),
             ),
           ],
         ),

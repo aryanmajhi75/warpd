@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:spotify/components/tabCards.dart';
+import 'package:spotify/constants.dart';
 
 class TabList extends StatefulWidget {
   const TabList({super.key});
@@ -16,20 +17,27 @@ class _TabListState extends State<TabList> {
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
     // final width = MediaQuery.of(context).size.width;
-    return SizedBox(
-      // color: Colors.pinkAccent,
+    return Container(
+      decoration: BoxDecoration(
+        // color: Colors.pinkAccent,
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: spotifyGreen,
+          width: 3,
+        ),
+      ),
       height: height * 0.35,
       child: Column(
         children: [
+          Gap(height * 0.02),
           DefaultTabController(
             length: 5,
             animationDuration: const Duration(milliseconds: 500),
             child: TabBar(
               labelPadding: const EdgeInsets.only(
-                bottom: 5,
+                // bottom: 5,
                 left: 10,
                 right: 10,
-                top: 0,
               ),
               indicatorColor: const Color(0xFF1AB40C),
               indicatorWeight: 3,
@@ -77,8 +85,9 @@ class _TabListState extends State<TabList> {
               ],
             ),
           ),
+          Gap(height * 0.02),
           Container(
-            height: height * 0.29,
+            height: height * 0.26,
             padding: const EdgeInsets.all(5),
             // color: Colors.pinkAccent,
             child: ListView.separated(

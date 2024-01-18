@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:spotify/constants.dart';
 
 class TabCards extends StatefulWidget {
@@ -13,7 +14,7 @@ class TabCards extends StatefulWidget {
 class _TabCardsState extends State<TabCards> {
   @override
   Widget build(BuildContext context) {
-    // final width = MediaQuery.of(context).size.width;
+    final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     // print(height);
     return SizedBox(
@@ -34,8 +35,8 @@ class _TabCardsState extends State<TabCards> {
             ),
           ),
           Positioned(
-            top: height * 0.17,
-            left: height * 0.12,
+            top: height * 0.18,
+            left: width * 0.3,
             child: ElevatedButton(
               onPressed: () {},
               style: ButtonStyle(
@@ -56,9 +57,10 @@ class _TabCardsState extends State<TabCards> {
               ),
             ),
           ),
+          Gap(height * 0.01),
           Positioned(
-            top: 185,
-            left: 10,
+            top: height * 0.21,
+            left: width * 0.1,
             child: Text(
               widget.title,
               style: Theme.of(context).textTheme.displayLarge,

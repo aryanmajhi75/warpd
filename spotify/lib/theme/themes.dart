@@ -4,6 +4,7 @@ import '../constants.dart';
 
 //Theme settingsfor light theme
 ThemeData lightMode = ThemeData(
+  useMaterial3: true,
   colorScheme: ColorScheme.light(
     background: spotifyWhite,
     brightness: Brightness.light,
@@ -100,6 +101,7 @@ ThemeData lightMode = ThemeData(
 
 //Theme settingsfor dark theme
 ThemeData darkMode = ThemeData(
+  useMaterial3: true,
   colorScheme: ColorScheme.dark(
     background: spotifyBlack,
     brightness: Brightness.dark,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/constants.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -10,6 +11,8 @@ class SearchScreen extends StatefulWidget {
 class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    // final width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -23,9 +26,22 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
         ),
       ),
-      body: const SafeArea(
+      body: SafeArea(
         child: Column(
-          children: [],
+          children: [
+            TextField(
+              cursorOpacityAnimates: true,
+              cursorWidth: 10,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(20),
+                  gapPadding: 10,
+                ),
+                hintText: 'Type here to search',
+                hintStyle: Theme.of(context).textTheme.displayMedium,
+              ),
+            ),
+          ],
         ),
       ),
     );
