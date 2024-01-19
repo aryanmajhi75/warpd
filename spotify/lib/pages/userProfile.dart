@@ -83,7 +83,7 @@ class _UserProfileState extends State<UserProfile> {
                   enabled: true,
                   tabs: _getTabs(context),
                   isStringTabs: false,
-                  children: <Widget>[
+                  children: const <Widget>[
                     UserDetails(),
                     AppTweeks(),
                     AppSettings(),
