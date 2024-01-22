@@ -16,6 +16,7 @@ dependencies:
   provider: 
   tab_container: 
   country_flags: 
+  shared_preferences: 
 
 dev_dependencies:
   flutter_test:

@@ -16,6 +16,8 @@ class MusicPlayer extends StatefulWidget {
 }
 
 class _MusicPlayerState extends State<MusicPlayer> {
+  bool isPlaying = false;
+
   final ScrollController _scrollController = ScrollController();
   bool _isPressed = false;
   final Duration _totalDuration = const Duration(
@@ -23,6 +25,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
     seconds: 02,
   );
   bool _isVisible = true;
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -73,6 +76,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  //song image
                   Container(
                     height: height * 0.45,
                     width: width * 0.9,
@@ -87,18 +91,34 @@ class _MusicPlayerState extends State<MusicPlayer> {
                       filterQuality: FilterQuality.high,
                       fit: BoxFit.contain,
                     ),
-                  ).animate(
-                    autoPlay: true,
-                    onInit: (controller) => controller.reverse(),
-                    onComplete: (controller) => controller.repeat(),
-                    effects: [
-                      const RotateEffect(
-                        duration: Duration(
-                          seconds: 2,
-                        ),
-                      ),
-                    ],
                   ),
+                  // .animate(
+                  //   autoPlay: true,
+                  //   onInit: (controller) => controller.reverse(),
+                  //   onComplete: (controller) => controller.repeat(),
+                  //   effects: [
+                  //     const RotateEffect(
+                  //       duration: Duration(
+                  //         seconds: 2,
+                  //       ),
+                  //     ),
+                  //   ],
+                  // )
+                  // : Container(
+                  //     height: height * 0.45,
+                  //     width: width * 0.9,
+                  //     decoration: const BoxDecoration(
+                  //       shape: BoxShape.circle,
+                  //       // borderRadius: BorderRadius.circular(20),
+                  //       color: Colors.amberAccent,
+                  //     ),
+                  //     clipBehavior: Clip.antiAlias,
+                  //     child: Image.asset(
+                  //       widget.imageUrl,
+                  //       filterQuality: FilterQuality.high,
+                  //       fit: BoxFit.contain,
+                  //     ),
+                  //   ),
                   Gap(
                     height * 0.02,
                   ),
@@ -108,10 +128,10 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     children: [
                       SizedBox(
                         height: height * 0.07,
-                        width: width * 0.73,
+                        width: width * 0.7,
                         // color: Colors.amber[900],
                         child: Column(
-                          // mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
@@ -124,9 +144,6 @@ class _MusicPlayerState extends State<MusicPlayer> {
                             ),
                           ],
                         ),
-                      ),
-                      Gap(
-                        width * 0.01,
                       ),
                       //Favourite button
                       FloatingActionButton.large(

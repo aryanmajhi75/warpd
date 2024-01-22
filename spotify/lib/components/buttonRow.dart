@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:spotify/constants.dart';
-import 'package:spotify/theme/themeProvider.dart';
-import 'package:spotify/theme/themes.dart';
 
 class ButtonRow extends StatefulWidget {
   const ButtonRow({super.key});
@@ -72,11 +69,9 @@ class _ButtonRowState extends State<ButtonRow> {
         //Pause/Play Button
         FloatingActionButton.large(
           onPressed: () {
-            if (_isPlaying) {
-              setState(() => _isPlaying = false);
-            } else {
-              setState(() => _isPlaying = true);
-            }
+            setState(() {
+              _isPlaying = !_isPlaying;
+            });
           },
           child: _isPlaying
               ? const Icon(
