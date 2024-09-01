@@ -1,0 +1,29 @@
+name: warpd
+description: "Music streaming app with free downloads and AI enhanced recommendation"
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.2 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  dot_bottom_nav_bar: 
+  gap: 
+  flutter_svg: 
+  google_fonts:
+  material_theme_builder: 
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+      - assets/images/
+      - assets/icons/fill/
+      - assets/icons/outline/
